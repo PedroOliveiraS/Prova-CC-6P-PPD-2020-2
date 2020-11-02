@@ -2,13 +2,15 @@ package br.edu.iftm.threads;
 
 public class Thread_pessoa implements Runnable {
 
+	// Variaveis dos clientes
     private String nome;
     private double valor;
-    private int opr; // Operação
+    private int opr; 
     private Caixa caixa;
     private Thread Thread;
     private int pos;
-
+    
+    //Inicializador do Cliente
     public Thread_pessoa(String nome, double valor, int opr, int pos, Caixa caixa) {
         this.nome = nome;
         this.valor = valor;
@@ -19,6 +21,7 @@ public class Thread_pessoa implements Runnable {
         Thread.start();
     }
     
+    //Get Setters
     public String getNome() {
 		return nome;
 	}
@@ -59,7 +62,6 @@ public class Thread_pessoa implements Runnable {
 		Thread = thread;
 	}
 
-
 	public int getPos() {
 		return pos;
 	}
@@ -78,9 +80,8 @@ public class Thread_pessoa implements Runnable {
 		}
     }
 
-    
+    //Método que envia as recém criadas threads para o caixa
     public void run() {
-    	//System.out.println("A thread de nome " + nome + " iniciou");
     	caixa.operacao(nome, valor, opr, pos); 
     }
 }
