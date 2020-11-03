@@ -14,10 +14,9 @@ public class Caixa {
     //Metodo onde os clientes ficam esperando na fila por sua vez de usarem o caixa
     synchronized void operacao(String nome, double valor, int opr, int pos){
     	
-    	//Trava o cliente na fila ate o seu número seka 'chamado'
+    	//Trava o cliente na fila ate o seu número seja 'chamado'
     	while(chamado != pos){
     		try {
-    			System.out.println(nome + " entrou na fila.");
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
